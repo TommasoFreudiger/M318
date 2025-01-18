@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AvventuraPokemon.MainPage"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="25">
+
+            <Image
+                Source="logo_pokemon.png"
+                HeightRequest="225"
+                Aspect="AspectFit"/>
+
+            <!-- Frame scegli Pokémon -->
+            <Frame
+                   CornerRadius="25"
+                   HasShadow="True"
+                   BackgroundColor="#ffffff"
+                   BorderColor="#336699"
+                   WidthRequest="500"
+                   Padding="20">
+                <HorizontalStackLayout Spacing="10">
+
+                    <Image 
+                           Source="img_pokeball.png"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           Aspect="AspectFit"/>
+                    <Label 
+                           Text="Osserva i tuoi pokémon!"
+                           FontSize="16"
+                           VerticalOptions="Center"
+                           TextColor="#444"/>
+                    <Button
+                            Text="Pokedex"
+                            BackgroundColor="#336699"
+                            TextColor="White"
+                            FontSize="16"
+                            CornerRadius="25"
+                            Padding="10"
+                            HorizontalOptions="End"
+                            WidthRequest="200"
+                            Clicked="Button_Clicked_Scegli"/>
+
+                </HorizontalStackLayout>
+            </Frame>
+            <!-- Frame allena Pokémon -->
+            <Frame 
+                    CornerRadius="25"
+                    HasShadow="True"
+                    BackgroundColor="#ffffff"
+                    BorderColor="#336699"
+                    WidthRequest="500"
+                    Padding="20">
+                <HorizontalStackLayout Spacing="10">
+
+                    <Image 
+                            Source="img_allenamento.png"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            Aspect="AspectFit"/>
+                    <Label 
+                            Text="Allena i tuoi pokémon!"
+                            FontSize="16"
+                            VerticalOptions="Center"
+                            TextColor="#444"/>
+                    <Button
+                            Text="Allena"
+                            BackgroundColor="#336699"
+                            TextColor="White"
+                            FontSize="16"
+                            CornerRadius="25"
+                            Padding="10"
+                            HorizontalOptions="End"
+                            WidthRequest="200"
+                            Clicked="Button_Clicked_Allena"/>
+
+                </HorizontalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

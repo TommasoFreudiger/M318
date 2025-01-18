@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AvventuraPokemon.PokedexPage"
+             Title="ScegliPage"
+             Shell.NavBarIsVisible="False">
+    <ScrollView BackgroundColor="Gray">
+        <VerticalStackLayout Padding="30" Spacing="20" BackgroundColor="#f0f0f0">
+
+            <!-- Esistente immagine Pokémon -->
+            <Image Source="pokedex.png" Aspect="AspectFill" Margin="10" WidthRequest="300"/>
+
+            <!-- Picker per selezionare un Pokémon -->
+            <Picker Title="Seleziona Pokemon" 
+                    x:Name="pickPokemon" 
+                    SelectedIndexChanged="PickPokemonSelezionato"
+                    BackgroundColor="#ff4747"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center"
+                    Margin="0,0,0,20"/>
+            <!-- Picker per i Pokémon preferiti -->
+            <Picker Title="Pokemon Preferiti" 
+                    x:Name="pickFavorites" 
+                    SelectedIndexChanged="pickFavorites_SelectedIndexChanged"
+                    BackgroundColor="Green"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center"
+                    Margin="0,0,0,20"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Image Grid.Column="0" Grid.Row="0" x:Name="imagePath" Aspect="AspectFill" Margin="10"/>
+
+                <Grid Grid.Row="0" Grid.Column="1" Padding="20">
+                    <Frame BackgroundColor="#1e1e1e" Margin="10" BorderColor="#ff4747" CornerRadius="15">
+                        <VerticalStackLayout Padding="15" Spacing="10">
+                            <!-- Nome -->
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Nome" FontSize="16" TextColor="white"/>
+                                <Entry x:Name="entNome" Text="{Binding Nome}" FontSize="16" BackgroundColor="#3c3c3c" TextColor="white" HeightRequest="40" Placeholder="Inserisci nome"/>
+                            </VerticalStackLayout>
+
+                            <!-- Vita -->
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Vita" FontSize="16" TextColor="white"/>
+                                <Entry x:Name="entVita" Text="{Binding Vita}" FontSize="16" BackgroundColor="#3c3c3c" TextColor="white" HeightRequest="40" Placeholder="Inserisci vita"/>
+                            </VerticalStackLayout>
+
+                            <!-- Livello -->
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Livello" FontSize="16" TextColor="white"/>
+                                <Entry x:Name="entLivello" Text="{Binding Livello}" FontSize="16" BackgroundColor="#3c3c3c" TextColor="white" HeightRequest="40" Placeholder="Inserisci livello"/>
+                            </VerticalStackLayout>
+
+                            <!-- Mosse -->
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Mosse" FontSize="16" TextColor="white"/>
+                                <Entry x:Name="entMosse" Text="{Binding Mosse}" FontSize="16" BackgroundColor="#3c3c3c" TextColor="white" HeightRequest="40" Placeholder="Inserisci mosse"/>
+                            </VerticalStackLayout>
+
+                            <!-- Bottone per aggiungere ai preferiti -->
+                            <Button Text="Aggiungi ai Preferiti" BackgroundColor="#ff4747" TextColor="white" Clicked="OnAddToFavoritesClicked"/>
+
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+            </Grid>
+            <Button
+                Text="Home"
+                BackgroundColor="#336699"
+                TextColor="White"
+                FontSize="16"
+                CornerRadius="25"
+                Padding="10"
+                HorizontalOptions="End"
+                WidthRequest="200"
+                Clicked="Button_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
