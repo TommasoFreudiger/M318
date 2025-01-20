@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AvventuraPokemon.AllenaPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="AllenaPage"
+    Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout
+        Padding="30"
+        Spacing="20"
+        BackgroundColor="#f0f0f0">
+
+            <Image Source="allena.png" Aspect="AspectFill" Margin="10" WidthRequest="300"/>
+
+            <!-- Picker con sfondo rosso e testo grigio scuro -->
+            <Picker Title="Seleziona Pokemon" 
+            x:Name="pickPokemon" 
+            SelectedIndexChanged="pickPokemon_Selected"
+            BackgroundColor="#ff4747"
+            FontSize="30"
+            HorizontalTextAlignment="Center"
+            ItemDisplayBinding="{Binding Nome}"
+            Margin="0,0,0,20"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Immagine a sinistra -->
+                <Image Grid.Column="0" Grid.Row="0" x:Name="imagePath" Aspect="AspectFill" Margin="10"/>
+
+                <!-- Dati a destra -->
+                <Grid Grid.Row="0" Grid.Column="1" Padding="20">
+                    <Frame BackgroundColor="#1e1e1e" Margin="10" BorderColor="#ff4747" CornerRadius="15">
+                        <VerticalStackLayout Padding="15" Spacing="10">
+                            <!-- Nome -->
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Nome" FontSize="16" TextColor="white"/>
+                                <Entry x:Name="entNome" Text="{Binding Nome}" FontSize="16" BackgroundColor="#3c3c3c" TextColor="white" HeightRequest="40" Placeholder="Inserisci nome"/>
+                            </VerticalStackLayout>
+
+                            <!-- Vita -->
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Vita" FontSize="16" TextColor="white"/>
+                                <Entry x:Name="entVita" Text="{Binding Vita}" FontSize="16" BackgroundColor="#3c3c3c" TextColor="white" HeightRequest="40" Placeholder="Inserisci vita"/>
+                            </VerticalStackLayout>
+
+                            <!-- Livello -->
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Livello" FontSize="16" TextColor="white"/>
+                                <Entry x:Name="entLivello" Text="{Binding Livello}" FontSize="16" BackgroundColor="#3c3c3c" TextColor="white" HeightRequest="40" Placeholder="Inserisci livello"/>
+                            </VerticalStackLayout>
+
+                            <!-- Mosse -->
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Mosse" FontSize="16" TextColor="white"/>
+                                <Entry x:Name="entMosse" Text="{Binding Mosse}" FontSize="16" BackgroundColor="#3c3c3c" TextColor="white" HeightRequest="40" Placeholder="Inserisci mosse"/>
+                            </VerticalStackLayout>
+
+                            <!-- Bottoni -->
+                            <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
+                                <VerticalStackLayout Spacing="10" Margin="0,10,0,0">
+                                    <Button Text="Allena" BackgroundColor="#4CAF50" TextColor="white" FontSize="16" Padding="10" Clicked="OnAllenatiClicked" WidthRequest="550"/>
+                                    <Button Text="Cura" BackgroundColor="#2196F3" TextColor="white" FontSize="16" Padding="10" Clicked="OnCuraClicked" WidthRequest="550"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+            </Grid>
+            <Button
+                 Text="Home"
+                 BackgroundColor="#336699"
+                 TextColor="White"
+                 FontSize="16"
+                 CornerRadius="25"
+                 Padding="10"
+                 HorizontalOptions="End"
+                 WidthRequest="200"
+                 Clicked="Button_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
